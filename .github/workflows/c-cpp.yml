@@ -15,3 +15,7 @@ jobs:
       run: ./configure
     - name: make
       run: make
+    - uses: actions/upload-artifact@v2
+      with:
+        name: my-artifact
+        path: bin/targets/
