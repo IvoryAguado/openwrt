@@ -1,0 +1,21 @@
+name: C/C++ CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: configure
+      run: ./configure
+    - name: make
+      run: make
+    - uses: actions/upload-artifact@v2
+      with:
+        name: my-artifact
+        path: bin/targets/
